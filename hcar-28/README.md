@@ -1,24 +1,34 @@
 # hcar-28
 
-```
-$ cp hcar-28-template.tex hcar-28-octohat.tex
-```
+- Copy the `hcar-28-template.tex` template file:
 
-```
-hcar-28-octohat:
-	latexmk -xelatex hcar-28-octohat.pdf
-```
+  ```
+  $ cp hcar-28-template.tex hcar-28-octohat.tex
+  ```
 
-```
-$ make hcar-28-octohat
-```
+- Add the project to the `makefile`. For example:
 
-```
-$ open hcar-28-octohat.pdf
-```
+  ```
+  hcar-28-octohat:
+      latexmk -xelatex hcar-28-octohat.pdf
+  ```
 
-Or:
+- Generate the document
 
-```
-$ make
-```
+  ```
+  $ make hcar-28-octohat
+  ```
+
+  or
+
+  ```
+  $ make
+  ```
+
+  which generates all documents.
+
+- Preview the document:
+
+  ```
+  $ open hcar-28-octohat.pdf
+  ```
