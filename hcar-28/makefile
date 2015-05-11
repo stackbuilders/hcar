@@ -7,5 +7,8 @@ hcar-28-octohat:
 hcar-28-openssh-github-keys:
 	latexmk -xelatex hcar-28-openssh-github-keys.tex
 
+hcar-28-stackbuilders:
+	latexmk -xelatex hcar-28-stackbuilders.tex
+
 clean:
 	latexmk -c -silent hcar-28-*.tex
