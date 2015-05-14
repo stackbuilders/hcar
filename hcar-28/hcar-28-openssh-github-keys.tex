@@ -13,32 +13,30 @@
 \participants{Justin Leitgeb}% optional
 \makeheader
 
-A common DevOps task is adding a new member's SSH key to a remote server. The
-usual workflow is as follows:
+It is common to control access to a Linux server by changing public
+keys listed in the \texttt{authorized\_keys} file. Instead of
+modifying this file to grant and revoke access, a relatively new
+feature of OpenSSH allows the accepted public keys to be pulled from
+standard output of a command.
 
-\begin{itemize}
-  \item Ask the new member for their SSH public key
-  \item Copy and paste the new member SSH key inside the \texttt{authorized\_keys} file
-  \item Finally the new member should be able to SSH to the server
-\end{itemize}
+This package acts as a bridge between the OpenSSH daemon and Github so
+that you can manage access to servers by simply changing a GitHub
+Team, instead of manually modifying the \texttt{authorized\_keys}
+file. This package uses the
+\href{http://hackage.haskell.org/package/octohat}{Octohat} wrapper
+library for the GitHub API which we recently released.
 
-Although this process doesn't take too long and doesn't seem too complicated,
-managing dozens of servers with several users quickly becomes cumbersome -
-that's why we decided to write a library in Haskell that fetches the public SSH
-keys from GitHub so we can use them to authorize access to the remote servers.
+openssh-github-keys is still experimental, but we are using it on a
+couple of internal servers for testing purposes. It is available on
+\href{http://hackage.haskell.org/package/openssh-github-keys}{Hackage}
+and contributions and bug reports are welcome in the
+\href{https://github.com/stackbuilders/openssh-github-keys}{GitHub
+  repository}.
 
-Previous versions of OpenSSH have an option that allows you to pull a list of
-authorized keys for a user. This command pulls keys from GitHub and OpenSSH authorizes
-login using the selected user accounts.
-
-In the latest version we introduced the ability to read all the configuration from a
-file since OpenSSH configuration key AuthorizedKeysCommand only takes a
-single command without parameters as a value.
-
-Since openssh-github-keys is just an experimental library, you may want to have
-a user account that relies on a standard \texttt{authorized\_keys} file for a small group
-of primary users (e.g., system administrators) and give the rest of your team
-access through the GitHub authentication mechanism.
+While we don't have immediate plans to put openssh-github-keys into
+heavier production use, we are interested in seeing if community
+members and system administrators find it useful for managing server
+access.
 
 \FurtherReading
   \url{https://github.com/stackbuilders/openssh-github-keys}
