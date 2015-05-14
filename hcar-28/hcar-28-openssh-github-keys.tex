@@ -13,12 +13,12 @@
 \participants{Justin Leitgeb}% optional
 \makeheader
 
-A common DevOps task is adding a new member’s SSH key to a remote server. The
+A common DevOps task is adding a new member's SSH key to a remote server. The
 usual workflow is as follows:
 
 \begin{itemize}
   \item Ask the new member for their public SSH key
-  \item Copy and paste the new member SSH key inside the authorized_keys file
+  \item Copy and paste the new member SSH key inside the \texttt{authorized\_keys} file
   \item Finally the new member should be able to SSH to the server
 \end{itemize}
 
@@ -36,7 +36,7 @@ file since openssh configuration value AuthorizedKeysCommand only takes a
 single command without parameters.
 
 Since openssh-github-keys is just an experimental library, you may want to have
-a user account that relies on a standard authorized_keys file for a small group
+a user account that relies on a standard \texttt{authorized\_keys} file for a small group
 of primary users (e.g., system administrators) and give the rest of your team
 access through the GitHub authentication mechanism.
 
