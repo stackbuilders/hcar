@@ -9,22 +9,36 @@
 
 \begin{hcarentry}{openssh-github-keys (Stack Builders)}
 \report{Stack Builders}
-\status{(PROJECT STATUS IN ONE LINE)}
-\participants{(PARTICIPANTS OTHER THAN MYSELF)}% optional
+\status{Open Source, active library to automatically manage SSH access to servers using your existing GitHub teams}
+\participants{Justin Leitgeb}% optional
 \makeheader
 
-Put the text here. 
-If you want to include Haskell code, consider using lhs2tex syntax (\url{http://people.cs.uu.nl/andres/lhs2tex/}).
+A common DevOps task is adding a new member's SSH key to a remote server. The
+usual workflow is as follows:
 
-What's following are suggestions for the content of an entry.
+\begin{itemize}
+  \item Ask the new member for their SSH public key
+  \item Copy and paste the new member SSH key inside the \texttt{authorized\_keys} file
+  \item Finally the new member should be able to SSH to the server
+\end{itemize}
 
-(WHAT IS IT?)
+Although this process doesn't take too long and doesn't seem too complicated,
+managing dozens of servers with several users quickly becomes cumbersome -
+that's why we decided to write a library in Haskell that fetches the public SSH
+keys from GitHub so we can use them to authorize access to the remote servers.
 
-(WHAT IS ITS STATUS? / WHAT HAS HAPPENED SINCE LAST TIME?)
+Previous versions of OpenSSH have an option that allows you to pull a list of
+authorized keys for a user. This command pulls keys from GitHub and OpenSSH authorizes
+login using the selected user accounts.
 
-(CAN OTHERS GET IT?)
+In the latest version we introduced the ability to read all the configuration from a
+file since OpenSSH configuration key AuthorizedKeysCommand only takes a
+single command without parameters as a value.
 
-(WHAT ARE THE IMMEDIATE PLANS?)
+Since openssh-github-keys is just an experimental library, you may want to have
+a user account that relies on a standard \texttt{authorized\_keys} file for a small group
+of primary users (e.g., system administrators) and give the rest of your team
+access through the GitHub authentication mechanism.
 
 \FurtherReading
   \url{https://github.com/stackbuilders/openssh-github-keys}
