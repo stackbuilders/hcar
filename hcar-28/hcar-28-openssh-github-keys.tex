@@ -17,23 +17,23 @@ A common DevOps task is adding a new member's SSH key to a remote server. The
 usual workflow is as follows:
 
 \begin{itemize}
-  \item Ask the new member for their public SSH key
+  \item Ask the new member for their SSH public key
   \item Copy and paste the new member SSH key inside the \texttt{authorized\_keys} file
   \item Finally the new member should be able to SSH to the server
 \end{itemize}
 
 Although this process doesn't take too long and doesn't seem too complicated,
-managing dozens of servers with several users it quickly becomes cumbersome -
-that's why we decide to write a library in Haskell that fetch the public SSH
+managing dozens of servers with several users quickly becomes cumbersome -
+that's why we decided to write a library in Haskell that fetches the public SSH
 keys from GitHub so we can use them to authorize access to the remote servers.
 
 Previous versions of OpenSSH have an option that allows you to pull a list of
-authorized keys for a user. This command pulls keys GitHub and OpenSSH allows
+authorized keys for a user. This command pulls keys from GitHub and OpenSSH authorizes
 login using the selected user accounts.
 
-In latest version we introduce the ability to read all the configuration from a
-file since openssh configuration value AuthorizedKeysCommand only takes a
-single command without parameters.
+In the latest version we introduced the ability to read all the configuration from a
+file since OpenSSH configuration key AuthorizedKeysCommand only takes a
+single command without parameters as a value.
 
 Since openssh-github-keys is just an experimental library, you may want to have
 a user account that relies on a standard \texttt{authorized\_keys} file for a small group
