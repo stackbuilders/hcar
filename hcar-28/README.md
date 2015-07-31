@@ -1,5 +1,8 @@
 # hcar-28
 
+- [PDF][hcar-28-pdf]
+- [HTML][hcar-28-html]
+
 - Copy the `hcar-28-template.tex` template file:
 
   ```
@@ -32,3 +35,6 @@
   ```
   $ open hcar-28-octohat.pdf
   ```
+
+[hcar-28-pdf]: https://www.haskell.org/communities/05-2015/report.pdf
+[hcar-28-html]: https://www.haskell.org/communities/05-2015/html/report.html
